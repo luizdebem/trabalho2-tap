@@ -108,15 +108,20 @@ public class InserirGUI extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        int codigo = Integer.parseInt(this.inputCodigo.getText());
-        String nome = this.inputNome.getText();
-        String modelo = this.inputModelo.getText();
-        String marca = this.inputMarca.getText();
-        String estado = this.inputEstado.getText();
-        Double preco = Double.parseDouble(this.inputPreco.getText());
-        Produto p = new Produto(codigo, nome, modelo, marca, estado, preco, 0);
-        DBManager db = new DBManager();
-        db.inserir(p);
+        try {
+            int codigo = Integer.parseInt(this.inputCodigo.getText());
+            String nome = this.inputNome.getText();
+            String modelo = this.inputModelo.getText();
+            String marca = this.inputMarca.getText();
+            String estado = this.inputEstado.getText();
+            Double preco = Double.parseDouble(this.inputPreco.getText());
+            Produto p = new Produto(codigo, nome, modelo, marca, estado, preco, 0);
+            DBManager db = new DBManager();
+            db.inserir(p);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "O formulário contém erros, verifique os dados.");
+        }
+
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 

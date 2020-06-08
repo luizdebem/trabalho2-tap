@@ -85,14 +85,20 @@ public class ConsultarGUI extends javax.swing.JFrame {
     private void consultarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBtnActionPerformed
         // TODO add your handling code here:
         DBManager db = new DBManager();
-        
-        if (this.opcaoNome.isSelected()) {
-            Produto p = db.encontrarProdutoNome(this.textField.getText());
-            JOptionPane.showMessageDialog(null, p.toString());
-        } else if (this.opcaoCodigo.isSelected()) {
-            Produto p = db.encontrarProduto(Integer.parseInt(this.textField.getText()));
-            JOptionPane.showMessageDialog(null, p.toString());
+        try {
+            if (this.opcaoNome.isSelected()) {
+                Produto p = db.encontrarProdutoNome(this.textField.getText());
+                JOptionPane.showMessageDialog(null, p.toString());
+            } else if (this.opcaoCodigo.isSelected()) {
+                Produto p = db.encontrarProduto(Integer.parseInt(this.textField.getText()));
+                JOptionPane.showMessageDialog(null, p.toString());
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Erros no formulário, verifique os dados.");
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
+
     }//GEN-LAST:event_consultarBtnActionPerformed
 
 

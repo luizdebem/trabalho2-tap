@@ -84,11 +84,16 @@ public class ExcluirGUI extends javax.swing.JFrame {
     private void excluirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirBtnActionPerformed
         // TODO add your handling code here:
         DBManager db = new DBManager();
-
-        if (this.opcaoNome.isSelected()) {
-            db.excluirNome(this.textField.getText());
-        } else if (this.opcaoCodigo.isSelected()) {
-            db.excluir(Integer.parseInt(this.textField.getText()));
+        try {
+            if (this.opcaoNome.isSelected()) {
+                db.excluirNome(this.textField.getText());
+            } else if (this.opcaoCodigo.isSelected()) {
+                db.excluir(Integer.parseInt(this.textField.getText()));
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "O formulário contém erros, verifique os dados.");
+        } catch (NullPointerException np) {
+            JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
     }//GEN-LAST:event_excluirBtnActionPerformed
 
