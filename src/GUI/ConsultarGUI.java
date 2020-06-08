@@ -83,7 +83,13 @@ public class ConsultarGUI extends javax.swing.JFrame {
 
     private void consultarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBtnActionPerformed
         // TODO add your handling code here:
-
+        DBManager db = new DBManager();
+        
+        if (this.opcaoNome.isSelected()) {
+            db.encontrarProdutoNome(this.textField.getText());
+        } else if (this.opcaoCodigo.isSelected()) {
+            db.encontrarProduto(Integer.parseInt(this.textField.getText()));
+        }
     }//GEN-LAST:event_consultarBtnActionPerformed
 
 
