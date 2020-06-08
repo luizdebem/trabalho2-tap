@@ -167,12 +167,15 @@ public class MultisonoGUI extends javax.swing.JFrame {
 
     private void listarLogicoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarLogicoBtnActionPerformed
         // TODO add your handling code here:
+        DBManager db = new DBManager();
+        db.listarLogico();
 
     }//GEN-LAST:event_listarLogicoBtnActionPerformed
 
     private void listarFisicoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarFisicoBtnActionPerformed
         // TODO add your handling code here:
-
+        DBManager db = new DBManager();
+        db.listarFisico();
     }//GEN-LAST:event_listarFisicoBtnActionPerformed
 
     private void esvaziarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esvaziarMenuActionPerformed

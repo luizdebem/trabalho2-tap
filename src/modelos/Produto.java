@@ -85,7 +85,7 @@ public class Produto implements Serializable {
         return String.format(
         "Codigo: %d\nNome: %s\nModelo: %s\nMarca: %s\nEstado: %s\nPreco: %.2f\nDeletado: %s\n",
             this.getCodigo(),this.getNome(),this.getModelo(),this.getMarca(),this.getEstado(),
-            this.getPreco(),(this.getFoiDeletado() == -1 ? "Sim" : "Não")
+            this.getPreco(),(this.getFoiDeletado() == 1 ? "Sim" : "Não")
         );
     }
 }

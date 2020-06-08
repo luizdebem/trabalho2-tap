@@ -184,4 +184,74 @@ public class DBManager {
 
     }
 
+    public void listarLogico() { // os dados do banco menos aqueles marcados com foiDeletado = 1
+        try {
+            Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM Produtos WHERE foiDeletado = 0");
+            Produto p = null;
+            String result = "";
+
+            if (rs == null) {
+                JOptionPane.showMessageDialog(null, "Não há produtos a serem exibidos.");
+            }
+
+            while (rs.next()) {
+                int codigoProduto = rs.getInt("codigo");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String marca = rs.getString("marca");
+                String estado = rs.getString("estado");
+                Double preco = rs.getDouble("preco");
+                int foiDeletado = rs.getInt("foiDeletado");
+
+                p = new Produto(codigoProduto, nome, modelo, marca, estado, preco, foiDeletado);
+                result += p.toString() + "\n";
+            }
+
+            statement.close();
+            con.close();
+
+            JOptionPane.showMessageDialog(null, result.length() > 0 ? result : "Não há produtos a serem exibidos.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
+        }
+
+    }
+
+    public void listarFisico() { // os dados do banco
+        try {
+            Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM Produtos");
+            Produto p = null;
+            String result = "";
+
+            if (rs == null) {
+                JOptionPane.showMessageDialog(null, "Não há produtos a serem exibidos.");
+            }
+
+            while (rs.next()) {
+                int codigoProduto = rs.getInt("codigo");
+                String nome = rs.getString("nome");
+                String modelo = rs.getString("modelo");
+                String marca = rs.getString("marca");
+                String estado = rs.getString("estado");
+                Double preco = rs.getDouble("preco");
+                int foiDeletado = rs.getInt("foiDeletado");
+
+                p = new Produto(codigoProduto, nome, modelo, marca, estado, preco, foiDeletado);
+                result += p.toString() + "\n";
+            }
+
+            statement.close();
+            con.close();
+
+            JOptionPane.showMessageDialog(null, result.length() > 0 ? result : "Não há produtos a serem exibidos.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
+        }
+
+    }
+
 }
