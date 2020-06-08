@@ -55,4 +55,39 @@ public class DBManager {
         }
     }
 
+    public void excluir(int codigo) {
+        try {
+            Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
+            Statement statement = con.createStatement();
+            statement.executeUpdate("UPDATE Produtos SET foiDeletado = 1 WHERE codigo = " + codigo);
+            if (statement.getUpdateCount() >= 1) {
+                JOptionPane.showMessageDialog(null, "Produto marcado como apagado!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Produto não encontrado.");
+            }
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
+        }
+    }
+
+    public void excluirNome(String nome) {
+        try {
+            Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
+            Statement statement = con.createStatement();
+            statement.executeUpdate("UPDATE Produtos SET foiDeletado = 1 WHERE nome = '" + nome + "'");
+            if (statement.getUpdateCount() >= 1) {
+                JOptionPane.showMessageDialog(null, "Produto marcado como apagado!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Produto não encontrado.");
+            }
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
+            System.out.println(e);
+        }
+    }
+
 }
