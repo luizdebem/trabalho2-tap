@@ -1,6 +1,7 @@
 package gui;
 
 import controllers.DBManager;
+import modelos.*;
 import javax.swing.JOptionPane;
 
 /*
@@ -86,9 +87,11 @@ public class ConsultarGUI extends javax.swing.JFrame {
         DBManager db = new DBManager();
         
         if (this.opcaoNome.isSelected()) {
-            db.encontrarProdutoNome(this.textField.getText());
+            Produto p = db.encontrarProdutoNome(this.textField.getText());
+            JOptionPane.showMessageDialog(null, p.toString());
         } else if (this.opcaoCodigo.isSelected()) {
-            db.encontrarProduto(Integer.parseInt(this.textField.getText()));
+            Produto p = db.encontrarProduto(Integer.parseInt(this.textField.getText()));
+            JOptionPane.showMessageDialog(null, p.toString());
         }
     }//GEN-LAST:event_consultarBtnActionPerformed
 

@@ -86,7 +86,7 @@ public class DBManager {
             con.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
-            System.out.println(e);
+
         }
     }
 
@@ -116,11 +116,11 @@ public class DBManager {
 
             statement.close();
             con.close();
-            System.out.println(p.toString());
+
             return p;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
-            System.out.println(e.toString());
+
         } catch (NullPointerException np) {
             JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
@@ -153,11 +153,9 @@ public class DBManager {
 
             statement.close();
             con.close();
-            System.out.println(p.toString());
             return p;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
-            System.out.println(e.toString());
         } catch (NullPointerException np) {
             JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
@@ -181,7 +179,7 @@ public class DBManager {
             con.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
-            System.out.println(e);
+
         }
 
     }
