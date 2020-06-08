@@ -1,6 +1,7 @@
-package GUI;
+package gui;
 
-import Controllers.*;
+import controllers.DBManager;
+import modelos.Produto;
 import javax.swing.JOptionPane;
 
 /*
@@ -132,18 +133,42 @@ public class AlterarGUI extends javax.swing.JFrame {
 
     private void alterarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarBtnActionPerformed
         // TODO add your handling code here:
-
+        DBManager db = new DBManager();
+        
+        int codigo = Integer.parseInt(this.inputCodigo.getText());
+        String nome = this.inputNome.getText();
+        String modelo = this.inputModelo.getText();
+        String marca = this.inputMarca.getText();
+        String estado = this.inputEstado.getText();
+        Double preco = Double.parseDouble(this.inputPreco.getText());
+        
+        Produto p = new Produto(codigo, nome, modelo, marca, estado, preco, 0);
+        
+        db.update(codigo, p);
 
     }//GEN-LAST:event_alterarBtnActionPerformed
 
     private void pesquisarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarBtnActionPerformed
         // TODO add your handling code here:
+        DBManager db = new DBManager();
 
+        if (this.opcaoNome.isSelected()) {
+            Produto p = db.encontrarProdutoNome(this.textField.getText());
+            popularForm(p);
+        } else if (this.opcaoCodigo.isSelected()) {
+            Produto p = db.encontrarProduto(Integer.parseInt(this.textField.getText()));
+            popularForm(p);
+        }
 
     }//GEN-LAST:event_pesquisarBtnActionPerformed
 
-    private void popularForm() {
-
+    private void popularForm(Produto produto) {
+        this.inputCodigo.setText(String.valueOf(produto.getCodigo()));
+        this.inputNome.setText(produto.getNome());
+        this.inputModelo.setText(produto.getModelo());
+        this.inputMarca.setText(produto.getMarca());
+        this.inputEstado.setText(produto.getEstado());
+        this.inputPreco.setText(String.valueOf(produto.getPreco()));
     }
 
 

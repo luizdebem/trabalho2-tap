@@ -1,7 +1,7 @@
-package GUI;
+package gui;
 
 import javax.swing.JOptionPane;
-import Controllers.DBManager;
+import controllers.DBManager;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

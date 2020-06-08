@@ -1,4 +1,4 @@
-package Modelos;
+package modelos;
 import java.io.Serializable;
 
 public class Produto implements Serializable {

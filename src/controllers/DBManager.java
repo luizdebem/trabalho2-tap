@@ -1,8 +1,8 @@
-package Controllers;
+package controllers;
 
 import javax.swing.JOptionPane;
 import java.sql.*;
-import Modelos.Produto;
+import modelos.Produto;
 
 public class DBManager {
 
@@ -121,7 +121,7 @@ public class DBManager {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
             System.out.println(e.toString());
-        }  catch (NullPointerException np) {
+        } catch (NullPointerException np) {
             JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
         return null;
@@ -162,6 +162,28 @@ public class DBManager {
             JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
         return null;
+    }
+
+    public void update(int codigo, Produto p) {
+        try {
+            Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
+            Statement statement = con.createStatement();
+            statement.executeUpdate("UPDATE Produtos SET "
+                    + String.format("nome = '%s', modelo = '%s', marca = '%s', estado = '%s', preco = %.2f WHERE codigo = %d",
+                            p.getNome(), p.getModelo(), p.getMarca(), p.getEstado(), p.getPreco(), codigo)
+            );
+            if (statement.getUpdateCount() >= 1) {
+                JOptionPane.showMessageDialog(null, "Produto atualizado!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Produto não encontrado.");
+            }
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
+            System.out.println(e);
+        }
+
     }
 
 }

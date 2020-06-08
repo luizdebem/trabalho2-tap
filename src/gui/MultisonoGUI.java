@@ -1,6 +1,6 @@
-package GUI;
+package gui;
 
-import Controllers.*;
+import controllers.DBManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

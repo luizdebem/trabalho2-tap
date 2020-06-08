@@ -1,7 +1,7 @@
-package GUI;
+package gui;
 
-import Controllers.*;
-import Modelos.Produto;
+import controllers.DBManager;
+import modelos.Produto;
 import javax.swing.JOptionPane;
 
 /*

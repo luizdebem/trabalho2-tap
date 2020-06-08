@@ -1,6 +1,6 @@
-package GUI;
+package gui;
 
-import Controllers.*;
+import controllers.DBManager;
 import javax.swing.JOptionPane;
 
 /*
