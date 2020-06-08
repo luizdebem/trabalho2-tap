@@ -43,7 +43,7 @@ public class MultisonoGUI extends javax.swing.JFrame {
         listarLogicoBtn = new javax.swing.JMenuItem();
         listarFisicoBtn = new javax.swing.JMenuItem();
         propriedadesMenu = new javax.swing.JMenu();
-        tamanhoArquivoMenu = new javax.swing.JMenuItem();
+        criarTabelaMenu = new javax.swing.JMenuItem();
         qtdRegistrosMenu = new javax.swing.JMenuItem();
         esvaziarMenu = new javax.swing.JMenuItem();
 
@@ -114,13 +114,13 @@ public class MultisonoGUI extends javax.swing.JFrame {
 
         propriedadesMenu.setText("Propriedades");
 
-        tamanhoArquivoMenu.setText("Tamanho do Arquivo (bytes)");
-        tamanhoArquivoMenu.addActionListener(new java.awt.event.ActionListener() {
+        criarTabelaMenu.setText("Criar a tabela");
+        criarTabelaMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tamanhoArquivoMenuActionPerformed(evt);
+                criarTabelaMenuActionPerformed(evt);
             }
         });
-        propriedadesMenu.add(tamanhoArquivoMenu);
+        propriedadesMenu.add(criarTabelaMenu);
 
         qtdRegistrosMenu.setText("Quantidade de Registros");
         qtdRegistrosMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class MultisonoGUI extends javax.swing.JFrame {
         });
         propriedadesMenu.add(qtdRegistrosMenu);
 
-        esvaziarMenu.setText("Esvaziar arquivo");
+        esvaziarMenu.setText("Limpar tabela de produtos");
         esvaziarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 esvaziarMenuActionPerformed(evt);
@@ -180,15 +180,19 @@ public class MultisonoGUI extends javax.swing.JFrame {
 
     private void esvaziarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esvaziarMenuActionPerformed
         // TODO add your handling code here:
+        DBManager db = new DBManager();
+        db.esvaziarTabela();
 
     }//GEN-LAST:event_esvaziarMenuActionPerformed
 
-    private void tamanhoArquivoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamanhoArquivoMenuActionPerformed
+    private void criarTabelaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarTabelaMenuActionPerformed
 
-    }//GEN-LAST:event_tamanhoArquivoMenuActionPerformed
+    }//GEN-LAST:event_criarTabelaMenuActionPerformed
 
     private void qtdRegistrosMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtdRegistrosMenuActionPerformed
         // TODO add your handling code here:
+        DBManager db = new DBManager();
+        db.qtdRegistros();
 
     }//GEN-LAST:event_qtdRegistrosMenuActionPerformed
 
@@ -232,6 +236,7 @@ public class MultisonoGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem alterarBtn;
     private javax.swing.JMenuItem consultarBtn;
+    private javax.swing.JMenuItem criarTabelaMenu;
     private javax.swing.JMenu crudMenu;
     private javax.swing.JMenuItem esvaziarMenu;
     private javax.swing.JMenuItem excluirBtn;
@@ -242,6 +247,5 @@ public class MultisonoGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem listarLogicoBtn;
     private javax.swing.JMenu propriedadesMenu;
     private javax.swing.JMenuItem qtdRegistrosMenu;
-    private javax.swing.JMenuItem tamanhoArquivoMenu;
     // End of variables declaration//GEN-END:variables
 }

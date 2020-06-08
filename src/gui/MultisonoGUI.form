@@ -71,12 +71,12 @@
             <Property name="text" type="java.lang.String" value="Propriedades"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="tamanhoArquivoMenu">
+            <MenuItem class="javax.swing.JMenuItem" name="criarTabelaMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tamanho do Arquivo (bytes)"/>
+                <Property name="text" type="java.lang.String" value="Criar a tabela"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tamanhoArquivoMenuActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="criarTabelaMenuActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="qtdRegistrosMenu">
@@ -89,7 +89,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="esvaziarMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Esvaziar arquivo"/>
+                <Property name="text" type="java.lang.String" value="Limpar tabela de produtos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="esvaziarMenuActionPerformed"/>

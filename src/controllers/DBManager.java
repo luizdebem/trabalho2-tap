@@ -254,4 +254,37 @@ public class DBManager {
 
     }
 
+    public void esvaziarTabela() {
+        try {
+            Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
+            Statement statement = con.createStatement();
+            statement.executeUpdate("DELETE FROM Produtos");
+            statement.close();
+            con.close();
+            JOptionPane.showMessageDialog(null, "Tabela de produtos limpa!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
+        }
+    }
+
+    public void qtdRegistros() {
+        try {
+            Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT COUNT(*) FROM Produtos");
+            int total = 0;
+            
+            while(rs.next()) {
+                total = rs.getInt("COUNT(*)");   
+            }
+            statement.close();
+            con.close();
+            JOptionPane.showMessageDialog(null, "Total de registros na tabela produtos: " + total);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro na conexão com o banco de dados, ou os dados estão incorretos.");
+            System.out.println(e);
+        }
+
+    }
+
 }
