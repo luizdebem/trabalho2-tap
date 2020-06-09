@@ -9,7 +9,7 @@ public class DBManager {
     String dbdriver = "com.mysql.cj.jdbc.Driver";
     String dburl = "jdbc:mysql://localhost:3306/multisono";
     String dbusuario = "root";
-    String dbsenha = "";
+    String dbsenha = "libertadores";
 
     public void conectar() {
         try {
