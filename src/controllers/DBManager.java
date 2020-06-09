@@ -44,6 +44,7 @@ public class DBManager {
                     + String.format(
                             "(%d, '%s', '%s', '%s', '%s',  %.2f, %d)", p.getCodigo(), p.getNome(), p.getModelo(), p.getMarca(),
                             p.getEstado(), p.getPreco(), p.getFoiDeletado()));
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
             statement.close();
             con.close();
         } catch (SQLException e) {
