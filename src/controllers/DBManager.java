@@ -9,26 +9,13 @@ public class DBManager {
     String dbdriver = "com.mysql.cj.jdbc.Driver";
     String dburl = "jdbc:mysql://localhost:3306/multisono";
     String dbusuario = "root";
-    String dbsenha = "libertadores";
+    String dbsenha = "";
 
     public void conectar() {
         try {
             Class.forName(dbdriver);
             Connection con = DriverManager.getConnection(dburl, dbusuario, dbsenha);
             System.out.println("Conexão bem sucedida!");
-
-//            Statement stmt = con.createStatement();
-//            ResultSet rs
-//                    = stmt.executeQuery("SELECT clienteId, nome, "
-//                            + " cidade FROM cliente ");
-//            while (rs.next()) {
-//                int clienteId = rs.getInt("clienteId");
-//                String nome = rs.getString("nome");
-//                String cidade = rs.getString("cidade");
-//                System.out.println(clienteId + nome + cidade);
-//            }
-//
-//            con.close();
         } catch (ClassNotFoundException e) {
             System.out.println("Falha em carregar o DRIVER " + e);
         } catch (SQLException e) {
